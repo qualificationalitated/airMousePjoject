@@ -39,8 +39,8 @@ void loop()
   GyY=Wire.read()<<8|Wire.read(); // 0x45 (GYRO_YOUT_H) & 0x46 (GYRO_YOUT_L)
   GyZ=Wire.read()<<8|Wire.read(); // 0x47 (GYRO_ZOUT_H) & 0x48 (GYRO_ZOUT_L)
   int16_t gyroX, gyroZ;
-  int Sensitivity = 1000; // 움직임 보정치
-  gyroX = GyX / Sensitivity / 2.0 * -1; //마우스 세로 움직임 보정
+  int Sensitivity = 800; // 움직임 보정치
+  gyroX = GyX / Sensitivity / 1.6 * -1; //마우스 세로 움직임 보정
   gyroZ = GyZ / Sensitivity * -1; // 마우스 가로 움직임 보정
   Mouse.move(gyroZ, gyroX);
   if (digitalRead(buttonPin) == LOW)
